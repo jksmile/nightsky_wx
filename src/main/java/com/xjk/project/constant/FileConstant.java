@@ -12,4 +12,6 @@ public class FileConstant {
 
 	public static final String TEMPLATE_FILE_PATH = "template.properties";
 
+	public static final String WX_FILE_PATH = "wx.properties";
+
 }

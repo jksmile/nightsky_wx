@@ -18,13 +18,17 @@ public class HomeProperty {
 
 	private static HomeProperty instance;
 
-	private Properties templateProperites;
+	private Properties templateProperties;
+
+	private Properties wxProperties;
 
 	public HomeProperty() {
 
 		try {
 
-			templateProperites = PropertiesLoaderUtils.loadAllProperties(FileConstant.TEMPLATE_FILE_PATH);
+			templateProperties = PropertiesLoaderUtils.loadAllProperties(FileConstant.TEMPLATE_FILE_PATH);
+
+			wxProperties = PropertiesLoaderUtils.loadAllProperties(FileConstant.WX_FILE_PATH);
 
 		} catch (IOException e) {
 
@@ -36,21 +40,28 @@ public class HomeProperty {
 
 
 	public static HomeProperty getInstance() {
-		if (instance == null) {
-			instance = new HomeProperty();
-		}
+
+		if (instance == null) instance = new HomeProperty();
 
 		return instance;
+
 	}
 
 
-	public Properties getTemplateProperites() {
-		return templateProperites;
+
+	public Properties getTemplateProperties() {
+
+		return templateProperties;
+
 	}
 
-	public void setTemplateProperites(Properties templateProperites) {
-		this.templateProperites = templateProperites;
+
+	public Properties getWxProperties() {
+
+		return wxProperties;
+
 	}
+
 
 
 }

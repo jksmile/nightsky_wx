@@ -1,6 +1,7 @@
 package com.xjk.project.controller.admin;
 
 import com.xjk.project.constant.SessionConstant;
+import com.xjk.project.constant.UrlConstant;
 import com.xjk.project.model.UserModel;
 import com.xjk.project.service.UserService;
 import com.xjk.project.utils.HomeProperty;
@@ -26,9 +27,9 @@ import javax.servlet.http.HttpServletResponse;
 @RequestMapping("/login")
 public class LoginController {
 
-	private static final String ADMIN_LOGIN_PAGE = HomeProperty.getInstance().getTemplateProperites().getProperty("ADMIN_LOGIN_PAGE");
+	private static final String ADMIN_LOGIN_PAGE = HomeProperty.getInstance().getTemplateProperties().getProperty("ADMIN_LOGIN_PAGE");
 
-	private static final String ADMIN_INDEX_PAGE = HomeProperty.getInstance().getTemplateProperites().getProperty("ADMIN_INDEX_PAGE");
+	private static final String ADMIN_INDEX_PAGE = HomeProperty.getInstance().getTemplateProperties().getProperty("ADMIN_INDEX_PAGE");
 
 	@Autowired
 	private UserService userService;
@@ -49,8 +50,7 @@ public class LoginController {
 
 				request.getSession().setAttribute(SessionConstant.SESSION_USER_NAME,request.getParameter(SessionConstant.SESSION_USER_NAME));
 
-				return ADMIN_INDEX_PAGE;
-
+				return "redirect:"+ UrlConstant.ADMIN_INDEX_URL;
 			}
 
 		}

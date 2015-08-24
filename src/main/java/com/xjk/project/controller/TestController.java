@@ -1,5 +1,8 @@
 package com.xjk.project.controller;
 
+import com.xjk.project.model.wx.TokenModel;
+import com.xjk.project.service.WxService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -14,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/test")
 public class TestController {
 
+	@Autowired
+	private WxService wxService;
+
 //	@Autowired
 //	@Qualifier("juggler")
 //	private Performer performer;
@@ -22,8 +28,9 @@ public class TestController {
 	public Object test(){
 		System.out.println("Got it!");
 
-		return "test/ok";
+		TokenModel token = wxService.getToken();
 
+		return null;
 	}
 
 

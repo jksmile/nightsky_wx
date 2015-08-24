@@ -11,4 +11,8 @@ package com.xjk.project.constant;
 public class UrlConstant {
 
 	public static final String LOGIN_ACTION_URL = "/login/index";
+
+	public static final String ADMIN_INDEX_URL = "/admin/index";
+
+
 }
