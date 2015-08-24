@@ -5,7 +5,7 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.xjk.project</groupId>
-    <artifactId>projectA</artifactId>
+    <artifactId>nightsky_wx</artifactId>
     <packaging>war</packaging>
     <version>0.0.1</version>
 
@@ -162,15 +162,15 @@
             <artifactId>cglib</artifactId>
             <version>2.2.2</version>
         </dependency>
-        <dependency>
-            <groupId>webapp2</groupId>
-            <artifactId>webapp2</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>webapp2</groupId>-->
+            <!--<artifactId>webapp2</artifactId>-->
+            <!--<version>1.0-SNAPSHOT</version>-->
+        <!--</dependency>-->
     </dependencies>
 
     <build>
-        <finalName>projectA</finalName>
+        <finalName>nightsky_wx</finalName>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
