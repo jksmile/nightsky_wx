@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <context:property-placeholder location="classpath:*.properties"/>
+
+    <!--<tx:annotation-driven transaction-manager="transactionManager"/>-->
+
+    <!--<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
+        <!--<property name="dataSource" ref="hookDataSource"/>-->
+    <!--</bean>-->
+
+    <bean id="dataSourceMysql" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="${projectA.jdbc.driverClassName}"/>
+        <property name="jdbcUrl" value="${projectA.jdbc.url}"/>
+        <property name="user" value="${projectA.jdbc.username}"/>
+        <property name="password" value="${projectA.jdbc.password}"/>
+        <property name="initialPoolSize" value="3"/>
+        <property name="minPoolSize" value="1"/>
+        <property name="maxPoolSize" value="20"/>
+        <property name="idleConnectionTestPeriod" value="120"/>
+        <property name="maxIdleTime" value="120"/>
+        <property name="acquireIncrement" value="5"/>
+    </bean>
+
+    <!-- 拦截一层用于打印日志 slowTime 3000-->
+    <!--<bean id="hookDataSource" class="com.xjk.project.aspect.XDataSource">-->
+        <!--&lt;!&ndash;<property name="innerDataSource" ref="dataSourceMysql"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<property name="exceptionToNull" value="true"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<property name="slowQueryLog" value="true"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<property name="slowTime" value="3000"/>&ndash;&gt;-->
+    <!--</bean>-->
+
+    <bean id="sqlSessionFactory" name="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="configLocation" value="classpath:mybatis/mybatis-config-mysql.xml"/>
+        <property name="dataSource" ref="dataSourceMysql"/>
+        <property name="mapperLocations" value="classpath:mapper/**/*.xml"/>
+    </bean>
+
+    <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.xjk.project.dao/**/*"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+    </bean>
+
+</beans>

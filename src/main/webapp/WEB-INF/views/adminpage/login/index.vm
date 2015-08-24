@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Administrator Platform</title>
+##        <link type="text/css" href="/static/css/common.css" rel="stylesheet"/>
+
+##        <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+##        <script type="text/javascript" src="/static/js/common.js"></script>
+
+        <style type="text/css">
+
+            * {font-family: Arial, Helvetica,15px;}
+
+            #content {width:600px; height:200px; margin-left:auto; margin-right:auto; margin-top:150px;}
+
+            #title { margin-top:50px;text-align:center;}
+
+            #login {margin-top:50px; height:40px; text-align:center;line-height:40px; }
+
+            #login_user{width:180px;height:30px;}
+
+            .login_span{margin-left:20px;}
+
+            #login_pass{width:180px;height:30px;}
+
+            #login_button{width:70px; height:30px; font-size:15px;}
+
+
+
+        </style>
+
+
+    </head>
+
+<body>
+
+
+
+<div id="content">
+
+    <div id="title">微信登陆后台</div>
+
+    <hr />
+
+    <div id="login">
+
+        <form action="/login/index" method="post">
+
+            USER:<input id="login_user" type="text" name="${loginName}" />
+
+            <span class="login_span" />
+
+            PASS:<input id="login_pass" type="password" name="${loginPass}"/>
+
+            <span class="login_span" />
+
+            <input id="login_button" type="submit" value="LOGIN" />
+        </form>
+
+    </div>
+
+</div>
+
+
+
+
+</body>
+</html>
