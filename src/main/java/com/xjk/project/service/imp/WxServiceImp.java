@@ -45,8 +45,6 @@ public class WxServiceImp implements WxService{
 						@Override
 						public String load(String s) throws Exception {
 
-							System.out.println("----load cache-----");
-
 							return createTokenFromAPI();
 						}
 
