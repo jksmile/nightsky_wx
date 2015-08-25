@@ -63,7 +63,7 @@ public class HttpRequest {
 
 			while( (tempStr = bufferedReader.readLine()) != null )
 
-				strBuf.append(tempStr+"\n");
+				strBuf.append(tempStr);
 
 		} catch (IOException e) {
 			//Todo.

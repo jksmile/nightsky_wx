@@ -14,10 +14,10 @@
     <!--</bean>-->
 
     <bean id="dataSourceMysql" class="com.mchange.v2.c3p0.ComboPooledDataSource">
-        <property name="driverClass" value="${projectA.jdbc.driverClassName}"/>
-        <property name="jdbcUrl" value="${projectA.jdbc.url}"/>
-        <property name="user" value="${projectA.jdbc.username}"/>
-        <property name="password" value="${projectA.jdbc.password}"/>
+        <property name="driverClass" value="${nightsky_wx.jdbc.driverClassName}"/>
+        <property name="jdbcUrl" value="${nightsky_wx.jdbc.url}"/>
+        <property name="user" value="${nightsky_wx.jdbc.username}"/>
+        <property name="password" value="${nightsky_wx.jdbc.password}"/>
         <property name="initialPoolSize" value="3"/>
         <property name="minPoolSize" value="1"/>
         <property name="maxPoolSize" value="20"/>

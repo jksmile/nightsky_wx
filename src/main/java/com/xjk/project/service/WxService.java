@@ -1,6 +1,6 @@
 package com.xjk.project.service;
 
-import com.xjk.project.model.wx.TokenModel;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Intro:
@@ -11,7 +11,9 @@ import com.xjk.project.model.wx.TokenModel;
 public interface WxService {
 
 
-	public TokenModel getToken();
+	public  String getToken() throws ExecutionException;
+
+	public String createTokenFromAPI();
 
 
 
