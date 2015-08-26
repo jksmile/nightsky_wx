@@ -1,1 +1,12 @@
-admin/index
+<html>
+
+<frameset cols="20%,*" border="1" noresize="noresize">
+
+    <frame src="/admin/menu" name="leftFrame" target="rightFrame">
+    <frame src="/admin/welcome" name="rightFrame">
+
+
+</frameset>
+
+</html>
+~         

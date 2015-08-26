@@ -23,7 +23,9 @@ public class AdminController {
 
 	private static final String ADMIN_INDEX_PAGE = HomeProperty.getInstance().getTemplateProperties().getProperty("ADMIN_INDEX_PAGE");
 
-	private static final String ADMIN_LOGIN_PAGE = HomeProperty.getInstance().getTemplateProperties().getProperty("ADMIN_LOGIN_PAGE");
+	private static final String ADMIN_MENU_PAGE = HomeProperty.getInstance().getTemplateProperties().getProperty("ADMIN_MENU_PAGE");
+
+	private static final String ADMIN_WELCOME_PAGE = HomeProperty.getInstance().getTemplateProperties().getProperty("ADMIN_WELCOME_PAGE");
 
 	@RequestMapping("/index")
 	public Object index(HttpServletRequest request,HttpServletResponse response){
@@ -34,6 +36,20 @@ public class AdminController {
 		return ADMIN_INDEX_PAGE;
 	}
 
+
+	@RequestMapping("/menu")
+	public Object menu(HttpServletRequest request, HttpServletResponse response){
+
+
+		return ADMIN_MENU_PAGE;
+	}
+
+	@RequestMapping("/welcome")
+	public Object welcome(HttpServletRequest request, HttpServletResponse response) {
+
+
+		return ADMIN_WELCOME_PAGE;
+	}
 
 
 }
