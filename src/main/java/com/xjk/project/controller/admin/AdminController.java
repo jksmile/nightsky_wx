@@ -23,7 +23,7 @@ public class AdminController {
 
 	private static final String ADMIN_INDEX_PAGE = HomeProperty.getInstance().getTemplateProperties().getProperty("ADMIN_INDEX_PAGE");
 
-	private static final String ADMIN_MENU_PAGE = HomeProperty.getInstance().getTemplateProperties().getProperty("ADMIN_MENU_PAGE");
+	private static final String ADMIN_LEFTFRAME_PAGE = HomeProperty.getInstance().getTemplateProperties().getProperty("ADMIN_LEFTFRAME_PAGE");
 
 	private static final String ADMIN_WELCOME_PAGE = HomeProperty.getInstance().getTemplateProperties().getProperty("ADMIN_WELCOME_PAGE");
 
@@ -41,7 +41,7 @@ public class AdminController {
 	public Object menu(HttpServletRequest request, HttpServletResponse response){
 
 
-		return ADMIN_MENU_PAGE;
+		return ADMIN_LEFTFRAME_PAGE;
 	}
 
 	@RequestMapping("/welcome")
