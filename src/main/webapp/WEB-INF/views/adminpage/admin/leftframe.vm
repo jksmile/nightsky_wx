@@ -25,10 +25,9 @@
 
 
     <ul id="menu">
-        <li><a href="http://baidu.com" target="rightFrame">用户管理</a></li>
-        <li><a href="/member/index">用户管理</a></li>
-        <li><a href="/menu/index">菜单管理</a></li>
-        <li><a href="">用户管理</a></li>
+        <li><a href="/member/index" target="rightFrame">用户管理</a></li>
+        <li><a href="/menu/index" target="rightFrame">菜单管理</a></li>
+
     </ul>
 
 </div>
