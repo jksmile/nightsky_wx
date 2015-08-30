@@ -37,6 +37,17 @@ public class WxServiceImp implements WxService{
 	private static final int EXPIRESTIME = 7200;
 
 
+	private static final String GET_MENU_URL = HomeProperty.getInstance().getWxProperties().getProperty("GET_MENU_URL");
+
+
+	private static final String CREATE_MENU_URL = HomeProperty.getInstance().getWxProperties().getProperty("CREATE_MENU_URL");
+
+
+	private static final String DELETE_MENU_URL = HomeProperty.getInstance().getWxProperties().getProperty("DELETE_MENU_URL");
+
+
+
+
 	LoadingCache<String,String> cache = CacheBuilder.newBuilder().expireAfterAccess(EXPIRESTIME, TimeUnit.SECONDS)
 			.refreshAfterWrite(EXPIRESTIME,TimeUnit.SECONDS).maximumSize(1).build(
 
@@ -45,7 +56,7 @@ public class WxServiceImp implements WxService{
 						@Override
 						public String load(String s) throws Exception {
 
-							return createTokenFromAPI();
+							return getTokenFromAPI();
 						}
 
 					}
@@ -53,17 +64,26 @@ public class WxServiceImp implements WxService{
 
 
 
-	@Override
-	public  String  getToken() throws ExecutionException {
+	public  String  getToken(){
 
-		String accessToken = cache.get(WxConstant.ACCESS_TOKE);
+		String accessToken = null;
+
+		try {
+
+			accessToken = cache.get(WxConstant.ACCESS_TOKE);
+
+		} catch (ExecutionException e) {
+			//Todo.
+			e.printStackTrace();
+		}
 
 
 		return accessToken;
 	}
 
+
 	@Override
-	public  String createTokenFromAPI(){
+	public  String getTokenFromAPI(){
 
 		String url = TOKEN_URL+"&appid="+APPID+"&secret="+APPSECRET;
 
@@ -76,8 +96,34 @@ public class WxServiceImp implements WxService{
 	}
 
 
+	@Override
+	public String getMenuFromAPI(){
+
+
+		String menuUrl = GET_MENU_URL+"?"+WxConstant.ACCESS_TOKE+"="+getToken();
+
+		String result = HttpRequest.send(menuUrl,RequestMethodConstant.METHOD_GET);
+
+
+		return result;
+	}
+
+
+	@Override
+	public String createMenuToAPI() {
+
+
+
+		return null;
+	}
+
+
+	@Override
+	public String delMenuToAPI() {
 
 
 
 
+		return null;
+	}
 }

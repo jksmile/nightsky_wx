@@ -27,20 +27,6 @@ public class TestController {
 	@RequestMapping("/ok")
 	public Object test() throws InterruptedException, ExecutionException {
 
-			System.out.println(wxService.getToken()+"--------");
-
-		Thread.sleep(2000);
-
-			System.out.println(wxService.getToken()+"--------");
-
-
-
-
-		Thread.sleep(10000);
-
-
-		System.out.println(wxService.getToken()+"--------");
-
 
 
 
