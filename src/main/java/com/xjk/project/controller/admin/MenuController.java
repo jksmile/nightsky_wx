@@ -1,10 +1,13 @@
 package com.xjk.project.controller.admin;
 
+import com.sun.deploy.net.HttpResponse;
 import com.xjk.project.service.WxService;
 import com.xjk.project.utils.HomeProperty;
+import com.xjk.project.utils.HttpRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -39,11 +42,29 @@ public class MenuController {
 
 
     @RequestMapping("/getMenu")
-    public Object getMenuFromAPI(){
+    public @ResponseBody Object getMenuFromAPI(){
 
         String menuList = wxService.getMenuFromAPI();
 
         System.out.println("--------"+menuList.toString()+"-----------");
+
+        return null;
+    }
+
+
+    @RequestMapping("/addMenu")
+    public @ResponseBody Object addMenu(HttpRequest request,HttpResponse response){
+
+
+
+
+        return null;
+    }
+
+
+    @RequestMapping("/delMenu")
+    public @ResponseBody Object delMenu(HttpRequest request){
+
 
         return null;
     }
