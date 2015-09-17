@@ -4,9 +4,11 @@ import com.xjk.project.model.UserModel;
 import org.springframework.stereotype.Service;
 
 /**
- * Intro:
- * Project: projectA
+ *
+ *
+ *
  * Date:    3/22/15
+ *
  * Author:  xujinkai
  */
 
@@ -14,6 +16,6 @@ import org.springframework.stereotype.Service;
 public interface UserService {
 
 
-	public UserModel checkLogin(String userName,String userPass);
+	UserModel checkLogin(String userName,String userPass);
 
 }

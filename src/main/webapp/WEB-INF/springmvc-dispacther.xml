@@ -72,10 +72,6 @@
               </mvc:interceptor>
        </mvc:interceptors>
 
-       <!--Following codes just Test-->
-       <bean id="duke" class="com.xjk.project.service.imp.Juggler">
-              <constructor-arg value="15" />
-       </bean>
 
 
 

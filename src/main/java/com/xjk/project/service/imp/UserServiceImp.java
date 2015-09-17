@@ -20,7 +20,7 @@ public class UserServiceImp implements UserService {
 
 
 	@Resource
-	public UserDao userDao;
+	private UserDao userDao;
 
 	@Override
 	public UserModel checkLogin(String userName,String userPass) {

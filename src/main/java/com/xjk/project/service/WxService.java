@@ -3,9 +3,10 @@ package com.xjk.project.service;
 import java.util.concurrent.ExecutionException;
 
 /**
- * Intro:
- * Project: nightsky_wx
+ *
+ *
  * Date:    8/25/15
+ *
  * Author:  xujinkai
  */
 public interface WxService {
@@ -25,7 +26,7 @@ public interface WxService {
 	 * @Author: jinkai.xu
 	 *
 	 */
-	public String getTokenFromAPI();
+	String getTokenFromAPI();
 
 
 	/**
@@ -38,7 +39,7 @@ public interface WxService {
 	 *
 	 * @Author: jinkai.xu
 	 */
-	public String getMenuFromAPI();
+	String getMenuFromAPI();
 
 
 	/**
@@ -51,7 +52,7 @@ public interface WxService {
 	 *
 	 * @Author: jinkai.xu
 	 */
-	public String createMenuToAPI();
+	String createMenuToAPI();
 
 
 	/**
@@ -63,7 +64,7 @@ public interface WxService {
 	 * @Author: jinkai.xu
 	 *
 	 */
-	public String delMenuToAPI();
+	String delMenuToAPI();
 
 
 

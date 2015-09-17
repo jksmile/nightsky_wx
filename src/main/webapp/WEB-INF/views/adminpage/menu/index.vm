@@ -1,0 +1,192 @@
+<html>
+<head>
+    <title>Menu Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" src="/static/js/jquery.min.js" ></script>
+    <script type="text/javascript" src="/static/js/startMove.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+
+            $(".menuBut").click(function(event){
+
+                clearInput();
+
+                initTargetDiv(event);
+
+                $(this).css("background","red");
+
+                var json= {width:280,height:200,opacity:100,top:100,left:600};
+
+                oDiv = document.getElementById("targetDiv");
+
+                startMove(oDiv,json,20);
+            })
+
+        });
+
+        function commitSub(){
+
+            var title = $("#targetTitle").val();
+
+            var type = $("#targetType").val();
+
+            var content = $("#targetContent").val();
+
+            var position = $("#targetHidden").val();
+
+            // alert(title+"-"+type+"-"+content+"-"+position);
+
+            if( title == "" || type == "" || content == "" || position == ""){
+                alert("提交参数填写不正确！");
+            }
+
+            var data = {title:title,type:type,content:content,position:position};
+
+            $.post("/menu/operateMenu",data,function(result){
+
+
+            });
+        }
+
+        function cancleSub(){
+            clearInput();
+
+            var json= {width:280,height:200,opacity:0,top:0,left:600};
+
+            oDiv = document.getElementById("targetDiv");
+
+            startMove(oDiv,json,20);
+
+        }
+
+        function clearInput(){
+            $("#targetTitle").val("");
+            $("#targetType").val("");
+            $("#targetContent").val("");
+            $(".menuBut").css("background","white");
+        }
+
+        function initTargetDiv(event){
+
+            var e = event || window.event;
+
+            var scrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
+
+            var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+
+            var x = e.pageX || e.clientX + scrollX;
+
+            var y = e.pageY || e.clientY + scrollY;
+
+            $("#targetDiv").css("display","block");
+
+            $("#targetDiv").css("left",x);
+
+            $("#targetDiv").css("top",y);
+
+        }
+
+
+
+    </script>
+
+    <style type="text/css">
+        #phone { position: absolute; top: 100px; left: 100px;}
+
+        #phoneImg { z-index: 1;}
+
+        #menuBar { position: absolute; width: 308px; height: 240px; left: 120px; top: 370px;}
+
+        .menuList {width: 101px;float:left; margin-left: 1px;}
+
+        .menuBut { float: left; width: 95px; height: 38px; border: 1px dashed grey; line-height: 38px; text-align: center; font-size: 18px; cursor: pointer;margin:2px;}
+
+        .bottomMenu {border:1px solid grey; width: 101px; margin-left: 0px;}
+
+        #targetDiv { position:absolute;margin:0 auto;filter:alpha('opacity:40');opacity:0.4;border:1px solid grey; display: none; }
+
+        .targetOpt { width: inherit; margin-left:10px; margin-top: 20px; font-size: 18px; border: 0px; }
+
+        .operateBut { width: 40px; height: 25px; border: 1px solid grey; text-align: center; margin-top: 40px; margin-left: 70px; cursor: pointer;}
+    </style>
+
+
+</head>
+
+<body>
+
+
+
+<div id="phone">
+
+    <img src="/static/img/phone.png" id="phoneImg">
+
+</div>
+
+
+<div id="menuBar">
+
+    <div class="menuList">
+        <div position="1"  class="menuBut"/>+</div>
+    <div position="1"  class="menuBut"/>+</div>
+<div position="1"  class="menuBut"/>+</div>
+<div position="1"  class="menuBut"/>+</div>
+<div position="1"  class="menuBut"/>+</div>
+<div position="2"  class="menuBut bottomMenu"/>+</div>
+</div>
+
+<div class="menuList">
+    <div position="1"  class="menuBut"/>+</div>
+<div position="1"  class="menuBut"/>+</div>
+<div position="1"  class="menuBut"/>+</div>
+<div position="1"  class="menuBut"/>+</div>
+<div position="1"  class="menuBut"/>+</div>
+<div position="2"  class="menuBut bottomMenu"/>+</div>
+</div>
+
+
+<div class="menuList">
+    <div position="1"  class="menuBut"/>+</div>
+<div position="1"  class="menuBut"/>+</div>
+<div position="1"  class="menuBut"/>+</div>
+<div position="1"  class="menuBut"/>+</div>
+<div position="1"  class="menuBut"/>+</div>
+<div position="2"  class="menuBut bottomMenu"/>+</div>
+</div>
+
+</div>
+
+
+
+<div id="targetDiv">
+    <div class="targetOpt">按钮标题:&nbsp;
+        <input type="text" id="targetTitle" />
+    </div>
+
+    <div  class="targetOpt">按钮类型: &nbsp;
+        <select name="type" id="targetType">
+            <option value="">--请选择--</option>
+            <option value="0">底部按钮</option>
+            <option value="1">跳转链接</option>
+            <option value="2">点击发送</option>
+        </select>
+    </div>
+
+    <div  class="targetOpt">按钮参数:&nbsp;
+        <input type="text" id="targetContent"/>
+    </div>
+
+    <div class="targetSub">
+        <input type="hidden" id="targetHidden" value=""/>
+        <input type="submit" id="add" class="operateBut" value="添 加"  onclick="commitSub()"/>
+##        <input type="submit" id="update" class="operateBut" value="修 改"  onclick="commitSub()"/>
+##        <input type="submit" id="del" class="operateBut" value="删 除"  onclick="commitSub()"/>
+        <input type="submit" id="cancelBut" class="operateBut" value="取 消"  onclick="cancleSub()"/>
+    </div>
+</div>
+
+</body>
+
+</html>

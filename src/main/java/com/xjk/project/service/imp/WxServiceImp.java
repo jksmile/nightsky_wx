@@ -9,11 +9,11 @@ import com.xjk.project.service.WxService;
 import com.xjk.project.utils.HomeProperty;
 import com.xjk.project.utils.HttpRequest;
 import net.sf.json.JSONObject;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
-
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
+
+
 
 /**
  * Intro:
@@ -83,9 +83,9 @@ public class WxServiceImp implements WxService{
 
 
 	@Override
-	public  String getTokenFromAPI(){
+	public String getTokenFromAPI() {
 
-		String url = TOKEN_URL+"&appid="+APPID+"&secret="+APPSECRET;
+		String url = TOKEN_URL + "&appid=" + APPID + "&secret=" + APPSECRET;
 
 		String response = HttpRequest.send(url, RequestMethodConstant.METHOD_GET);
 

@@ -1,14 +1,11 @@
 package com.xjk.project.controller.admin;
 
-import com.xjk.project.service.WxService;
 import com.xjk.project.utils.HomeProperty;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.concurrent.ExecutionException;
 
 /**
  * Intro:

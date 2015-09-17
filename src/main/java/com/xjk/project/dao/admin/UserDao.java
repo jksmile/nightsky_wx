@@ -15,9 +15,7 @@ import org.springframework.stereotype.Repository;
 public interface UserDao {
 
 
-	public UserModel checkLogin(@Param("userName") String userName, @Param("userPass") String userPass);
-
-
+	UserModel checkLogin(@Param("userName") String userName, @Param("userPass") String userPass);
 
 
 }
