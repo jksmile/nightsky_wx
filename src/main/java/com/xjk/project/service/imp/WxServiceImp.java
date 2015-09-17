@@ -5,11 +5,16 @@ import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 import com.xjk.project.constant.RequestMethodConstant;
 import com.xjk.project.constant.WxConstant;
+import com.xjk.project.model.WxMenuModel;
+import com.xjk.project.service.MenuService;
 import com.xjk.project.service.WxService;
 import com.xjk.project.utils.HomeProperty;
 import com.xjk.project.utils.HttpRequest;
 import net.sf.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
@@ -46,6 +51,8 @@ public class WxServiceImp implements WxService{
 	private static final String DELETE_MENU_URL = HomeProperty.getInstance().getWxProperties().getProperty("DELETE_MENU_URL");
 
 
+	@Autowired
+	private MenuService menuService;
 
 
 	LoadingCache<String,String> cache = CacheBuilder.newBuilder().expireAfterAccess(EXPIRESTIME, TimeUnit.SECONDS)
@@ -111,6 +118,15 @@ public class WxServiceImp implements WxService{
 
 	@Override
 	public String createMenuToAPI() {
+
+
+		List<WxMenuModel> menuList = menuService.getMenuList();
+
+
+
+
+
+
 
 
 

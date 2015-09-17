@@ -80,6 +80,13 @@ public class MenuController {
     @RequestMapping("/updateMenu")
     public @ResponseBody String updateMenu(HttpServletRequest request){
 
+        //Updata remote data.
+
+
+
+        //updata local database.
+
+
 
         return null;
     }

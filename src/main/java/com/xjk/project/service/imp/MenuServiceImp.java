@@ -26,13 +26,16 @@ public class MenuServiceImp implements MenuService {
     @Override
     public List<WxMenuModel> getMenuList() {
 
-
-
-
         return wxMenuDao.getMenuList();
 
     }
 
+
+    @Override
+    public void updateMenu(int id) {
+
+
+    }
 
 
 }

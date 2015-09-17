@@ -27,6 +27,15 @@ public interface MenuService {
     List<WxMenuModel> getMenuList();
 
 
+    /**
+     *
+     * The following method will update menu.
+     *
+     * @author: jinkai.xu
+     *
+     * @return String
+     */
+    void updateMenu(int id);
 
 
 }
