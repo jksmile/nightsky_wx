@@ -17,7 +17,7 @@
         select
         <include refid="Base_Column_List"/>
         from nightsky_wx.wx_menu
-        where del=0
+        where del=0 order by positionid asc
     </select>
 
 

@@ -6,7 +6,7 @@ import com.xjk.project.service.MenuService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.List;
+import java.util.*;
 
 /**
  *
@@ -37,5 +37,51 @@ public class MenuServiceImp implements MenuService {
 
     }
 
+    @Override
+    public Map<Integer,List<WxMenuModel>> handleMenu(){
+
+        List<WxMenuModel> menuList = getMenuList();
+
+        Map<Integer,List<WxMenuModel>> map = new HashMap<>();
+
+        for (WxMenuModel menu : menuList){
+
+            if(menu.getPid()==0){
+
+                if(map.containsKey(menu.getId())){
+
+                    map.get(menu.getId()).add(menu);
+
+                    continue;
+                }
+
+                List<WxMenuModel> list= new ArrayList<>();
+
+                list.add(menu);
+
+                map.put(menu.getId(),list);
+
+                continue;
+            }
+
+            if (map.containsKey(menu.getPid())) {
+
+                map.get(menu.getPid()).add(0,menu);
+
+            } else {
+
+                List<WxMenuModel> list= new ArrayList<>();
+
+                list.add(menu);
+
+                map.put(menu.getPid(),list);
+            }
+
+        }
+
+
+        return map;
+
+    }
 
 }

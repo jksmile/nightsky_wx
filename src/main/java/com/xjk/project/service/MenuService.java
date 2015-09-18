@@ -3,6 +3,7 @@ package com.xjk.project.service;
 import com.xjk.project.model.WxMenuModel;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -37,5 +38,7 @@ public interface MenuService {
      */
     void updateMenu(int id);
 
+
+    Map<Integer,List<WxMenuModel>> handleMenu();
 
 }

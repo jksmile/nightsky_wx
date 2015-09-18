@@ -1,14 +1,18 @@
 package com.xjk.project.controller.admin;
 
+import com.xjk.project.model.WxMenuModel;
 import com.xjk.project.service.MenuService;
 import com.xjk.project.service.WxService;
 import com.xjk.project.utils.HomeProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -37,8 +41,12 @@ public class MenuController {
 
 
     @RequestMapping("/index")
-    public Object index(ModelAndView model){
+    public Object index(Model model){
 
+
+        Map<Integer,List<WxMenuModel>> menuList = menuService.handleMenu();
+
+        model.addAttribute("menuList",menuList);
 
         return new ModelAndView(ADMIN_MENU_INDEX);
     }

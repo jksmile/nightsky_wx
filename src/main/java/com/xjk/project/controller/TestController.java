@@ -1,5 +1,6 @@
 package com.xjk.project.controller;
 
+import com.xjk.project.service.MenuService;
 import com.xjk.project.service.WxService;
 import com.xjk.project.service.imp.WxServiceImp;
 import net.sf.json.JSONObject;
@@ -23,11 +24,15 @@ public class TestController {
 	@Autowired
 	private WxService wxService;
 
+	@Autowired
+	private MenuService menuService;
+
 
 	@RequestMapping("/ok")
 	public Object test() throws InterruptedException, ExecutionException {
 
 
+		menuService.handleMenu();
 
 
 		return null;
